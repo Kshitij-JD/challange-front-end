@@ -1,0 +1,39 @@
+.mainCard {
+  min-height: 300px;
+}
+
+.title {
+  min-height: 60px;
+  background-color: #1686b0;
+  padding: 10px;
+}
+
+.body {
+  padding: 10px;
+  font-size: 13px;
+}
+
+.listItemTag {
+  font-size: 10px;
+}
+
+.green {
+  color: #34B71F;;
+}
+
+.red {
+  color: red;
+}
+
+.variable {
+  color: #337ab7;
+}
+
+.criteria {
+  margin-bottom: 10px;
+}
+
+.divider {
+  margin-bottom: 10px;
+  font-size: 10px;
+}

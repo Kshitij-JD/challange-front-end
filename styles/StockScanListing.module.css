@@ -1,0 +1,23 @@
+.listGroup {
+  padding-left: 5px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.listItem {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px dotted #ececec;
+}
+
+.listItemTag {
+  font-size: 10px;
+}
+
+.green {
+  color: #34B71F;;
+}
+
+.red {
+  color: red;
+}
