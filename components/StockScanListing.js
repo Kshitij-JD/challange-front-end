@@ -26,25 +26,27 @@ const StockScanListing = (props) => {
 
   return (
     <>
-      <ul className={styles.listGroup}>
-        {stockScanData && 
-          stockScanData.map((stockCriteria) => (
-            <li 
-              key={stockCriteria.name} 
-              value={stockCriteria.name}
-              className={styles.listItem}
-              onClick={()=>handleOnClickStockScanCriteria(stockCriteria.name)}
-            >
-              <div>{stockCriteria.name}</div>
-              <div 
-                className={`${styles[stockCriteria.color]} ${styles.listItemTag}`}
+      {stockScanData && 
+        <ul className={styles.listGroup}>
+          {
+            stockScanData.map((stockCriteria) => (
+              <li 
+                key={stockCriteria.name} 
+                value={stockCriteria.name}
+                className={styles.listItem}
+                onClick={()=>handleOnClickStockScanCriteria(stockCriteria.name)}
               >
-                {stockCriteria.tag}
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+                <div className={styles.listItemHeader}>{stockCriteria.name}</div>
+                <div 
+                  className={`${styles[stockCriteria.color]} ${styles.listItemTag}`}
+                >
+                  {stockCriteria.tag}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      }
     </>
   )
 }

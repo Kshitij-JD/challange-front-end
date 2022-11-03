@@ -33,14 +33,12 @@ a {
 .container {
   width: 100%;
   max-width: 420px;
-  padding: 15px;
   margin: auto;
 }
 
 .main {
   width: 100%;
   max-width: 420px;
-  padding: 15px;
   margin: auto;
   background-color: #01131B;
   color:#fff;

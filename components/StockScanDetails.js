@@ -4,33 +4,23 @@ import styles from '../styles/StockScanDetails.module.css'
 import StockDetailsReadSection from './StockDetailsReadSection'
 
 const StockScanDetails = (props) => {
-  const [slug, setSlug] = useState(null)
-  const [slugDetails , setSlugDetails] = useState({})
+  const [slugDetails , setSlugDetails] = useState(null)
   const router = useRouter();
 
-  useEffect(() => {
+  useEffect(()=>{
+    if(!router.isReady) return;
     const { id } = router.query;
-    setSlug(id)
-  })
-
-  useEffect(() => {
-    let mounted = true;
-    if(mounted) {
-      setDetailsValue(slug)
-    }
-    return () => mounted = false;
-  }, [slug])
+    setDetailsValue(id)
+  }, [router.isReady]);
 
   const setDetailsValue = (slug) => {
     const stockScanData = JSON.parse(localStorage.getItem('StockScanData'))
     const details = stockScanData.find(o => o.name === slug);
     setSlugDetails(details)
   }
-
   return (
     <>
       {slugDetails && 
-      <>
         <div className={styles["mainCard"]}>
           {/* Card Title */}
           <div className={styles["title"]}>
@@ -38,18 +28,14 @@ const StockScanDetails = (props) => {
             <div 
               className={`${styles[slugDetails.color]} ${styles.listItemTag}`}
             >
-                {slugDetails.tag}
+              {slugDetails.tag}
             </div>
           </div>
           {/* Card Body read section */}
           <div className={styles["body"]}>
-            {
-              slugDetails.criteria && 
-              <StockDetailsReadSection criteria={slugDetails.criteria}></StockDetailsReadSection>
-            }
+            <StockDetailsReadSection criteria={slugDetails.criteria}></StockDetailsReadSection>
           </div>
         </div>
-      </>
       }
     </>
   )
